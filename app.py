@@ -6,8 +6,7 @@ def main():
     url_article = st.text_input('Adress till artikeln').strip()
     if url_article == '':
         st.stop()
-    else:
-        url_article
+
     r = requests.get(url_article).content
     soup = BeautifulSoup(r, "html.parser")
     id = soup.find("button", {
@@ -23,11 +22,13 @@ def main():
     filename = title + ".m4a"
 
     url = d["audioUrl"]
-    url
+
     # Spara ljudet till en fil
     r = requests.get(url)
 
-    with open(filename, 'rb') as f:
+    # Ladda ner ljudet.
+
+    with open(filename, 'wb') as f:
         st.download_button('Ladda ned ljudet', r.content, mime="audio/mpeg", file_name= filename)
 
 
