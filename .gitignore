@@ -1,0 +1,5 @@
+*
+!.gitignore
+!sraudio_streamlit.py
+!app.py
+!requirements.txt
